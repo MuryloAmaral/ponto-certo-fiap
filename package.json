@@ -1,0 +1,14 @@
+{
+  "name": "ponto-certo-gs-2026",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Consulta de linhas, pontos e previsões da SPTrans para a Global Solution.",
+  "engines": { "node": "24.x" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server.mjs",
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check public/app.js && node --check public/domain.js && node --check api/sptrans.js && node --check lib/sptrans-client.js && node --check server.mjs"
+  }
+}

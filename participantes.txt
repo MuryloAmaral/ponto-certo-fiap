@@ -1,0 +1,16 @@
+GLOBAL SOLUTION 2026.2 - APPLICATION DEVELOPMENT
+Ponto Certo
+
+Murylo Silva Amaral - RM 568241
+Igor Mota Marran - RM 567823
+Dante Daher Garçon - RM 567727
+
+Divisão de responsabilidades para revisão e validação do projeto:
+
+Murylo: interface HTML/CSS, responsividade e publicação.
+Igor: eventos JavaScript, favoritos e filtro de acessibilidade.
+Dante: integração com a API, tratamento de erros e testes.
+
+A distribuição acima é proposta para a revisão do grupo. Antes da entrega,
+os integrantes devem confirmar e atualizar este arquivo de acordo com as
+contribuições efetivamente realizadas.

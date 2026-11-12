@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consulte pontos, linhas e previsões de chegada dos ônibus de São Paulo com dados da SPTrans.">
+  <meta name="theme-color" content="#ac2c25">
+  <title>Ponto Certo | Ônibus em São Paulo</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#consulta">Pular para a consulta</a>
+  <header class="masthead">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Ponto Certo, início"><span class="brand-icon" aria-hidden="true">P<span>•</span></span><span>Ponto Certo<small>Ônibus em São Paulo</small></span></a>
+      <nav aria-label="Navegação principal"><a href="#favoritos">Meus pontos</a><a href="#como-usar">Como usar</a></nav>
+      <button id="contrast" class="contrast-button" type="button" aria-pressed="false">Alto contraste</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="page-intro"><div><p class="eyebrow">MOBILIDADE NO DIA A DIA</p><h1>Menos espera.<br>Mais tempo para você.</h1><p>Encontre seu ponto e veja os próximos ônibus,<br class="desktop-break"> direto das informações da SPTrans.</p></div><div class="route-illustration" aria-hidden="true"><span class="route-name">SÃO PAULO</span><div class="route-track"><i></i><span class="bus-illustration">ÔNIBUS<br><b>SP</b></span><i></i><i></i></div><span class="route-sub">Seu caminho começa no ponto certo.</span></div></div>
+    <div id="service-note" class="notice" role="status" hidden></div>
+    <noscript><p class="notice">Ative o JavaScript para consultar as informações dos ônibus.</p></noscript>
+    <section id="consulta" class="workspace" aria-label="Consulta de transporte">
+      <div class="search-column">
+        <section class="panel search-panel" aria-labelledby="search-title">
+          <div class="section-heading"><span class="step">01</span><h2 id="search-title">Encontre seu caminho</h2></div>
+          <div class="mode-switch" aria-label="Tipo de busca"><button type="button" class="active" data-mode="paradas" aria-pressed="true">Por ponto ou rua</button><button type="button" data-mode="linhas" aria-pressed="false">Por linha</button></div>
+          <form id="search-form" novalidate><label id="search-label" for="search-input">Nome do ponto ou da rua</label><div class="search-control"><input type="search" id="search-input" placeholder="Ex.: Paulista" maxlength="80" minlength="2" autocomplete="off" required aria-describedby="search-help"><button type="submit" id="search-submit">Buscar <span aria-hidden="true">→</span></button></div><p id="search-help" class="help">Digite ao menos 2 caracteres. As paradas disponíveis dependem da cobertura da API.</p></form>
+          <div id="search-message" class="message" role="status"></div>
+          <div id="search-results" class="results" aria-live="polite"><div class="empty-search"><span aria-hidden="true">⌕</span><p>Qual é o seu próximo destino?</p><small>Busque pelo nome de uma rua, ponto ou linha.</small></div></div>
+        </section>
+        <section class="panel favorites-panel" id="favoritos" aria-labelledby="favorites-title"><div class="section-heading"><span class="step" aria-hidden="true">☆</span><h2 id="favorites-title">Meus pontos</h2><span id="favorites-count" class="count">0</span></div><div id="favorites-list"></div><p class="help">Seus favoritos ficam salvos apenas neste navegador.</p></section>
+      </div>
+      <section class="panel arrivals-panel" aria-labelledby="arrivals-title">
+        <div class="section-heading"><span class="step">02</span><h2 id="arrivals-title">Próximos ônibus</h2><span class="source-tag">SPTrans</span></div>
+        <div id="stop-header" hidden><p id="stop-name" class="stop-name"></p><p id="stop-address" class="help"></p><button type="button" id="favorite-toggle" class="text-button" aria-pressed="false">☆ Salvar ponto</button></div>
+        <div id="forecast-controls" class="forecast-controls" hidden><label><input type="checkbox" id="only-accessible"> Só veículos acessíveis</label><button type="button" id="refresh-button" class="refresh-button">Atualizar ↻</button><label class="auto-label"><input type="checkbox" id="auto-refresh" checked> Atualizar a cada 30 s</label></div>
+        <div id="forecast-message" class="message" role="status"></div>
+        <div id="arrivals-list"><div class="empty-arrivals"><div class="stop-symbol" aria-hidden="true"><span>ÔNIBUS</span><b>P</b></div><h3>Escolha um ponto para começar</h3><p>As previsões de chegada aparecerão aqui.<br>Você também pode abrir um ponto favorito.</p><div class="empty-steps"><span>1. Busque</span><span>2. Escolha o ponto</span><span>3. Veja as chegadas</span></div></div></div>
+        <p id="updated-at" class="updated-at"></p><p class="forecast-footnote">Os horários são estimativas da SPTrans e podem mudar conforme o trânsito e a operação.</p>
+      </section>
+    </section>
+    <section id="como-usar" class="how-to"><h2>Uma consulta simples, no seu ritmo.</h2><div class="instructions"><p><b>01 / Encontre</b>Busque uma rua ou o número da linha. Ao escolher uma linha, veja os pontos disponíveis.</p><p><b>02 / Acompanhe</b>Abra um ponto para ver os horários, o destino e a informação de acessibilidade dos veículos.</p><p><b>03 / Salve</b>Guarde os pontos do seu dia a dia para acessá-los novamente com um toque.</p></div></section>
+  </main>
+  <footer class="container footer"><p><b>Ponto Certo</b> · Global Solution 2026.2</p><p>Dados: <a href="https://www.sptrans.com.br/desenvolvedores/" target="_blank" rel="noopener noreferrer">SPTrans / API Olho Vivo</a>. Projeto acadêmico independente.</p><details><summary>Integrantes do projeto</summary><p>Murylo Silva Amaral · RM 568241<br>Igor Mota Marran · RM 567823<br>Dante Daher Garçon · RM 567727</p></details></footer>
+</body>
+</html>
